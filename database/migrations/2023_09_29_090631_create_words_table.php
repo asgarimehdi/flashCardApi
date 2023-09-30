@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('word')->unique();
             $table->string('fa')->unique();
-            $table->string('ex1');
-            $table->string('ex1Fa');
-            $table->string('ex2');
-            $table->string('ex2Fa');
-            $table->json('syn')->nullable();
-            $table->json('opp')->nullable();
+            $table->string('ex1')->nullable();
+            $table->string('ex1Fa')->nullable();
+            $table->string('ex2')->nullable();
+            $table->string('ex2Fa')->nullable();
+            $table->string('syn')->nullable();
+            $table->string('opp')->nullable();
             $table->string('type');
             $table->string('def');
             $table->timestamps();
