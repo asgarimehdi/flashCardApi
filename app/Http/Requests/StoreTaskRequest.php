@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Hash;
 
-class RegisterRequest extends FormRequest
+class StoreTaskRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,16 +22,7 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:150',
-            'email' => 'required|email|max:150|unique:users',
-            'password' => 'required|confirmed'
+            'name' => 'required|string|max:255'
         ];
-    }
-
-    public function getData()
-    {
-        $data = $this->validated();
-        $data['password'] = Hash::make($data['password']);
-        return $data;
     }
 }
