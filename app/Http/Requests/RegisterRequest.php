@@ -18,21 +18,20 @@ class RegisterRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:150',
-            'email' => 'required|email|max:150|unique:users',
-            'password' => 'required|confirmed'
+            'name'=>'required|string|max:150',
+            'email'=>'required|email|max:150|unique:users',
+            'password'=>'required|confirmed'
         ];
     }
-
     public function getData()
     {
         $data = $this->validated();
-        $data['password'] = Hash::make($data['password']);
+        $data['password']=Hash::make($data['password']);
         return $data;
     }
 }
